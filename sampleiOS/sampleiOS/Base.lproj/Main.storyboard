@@ -201,7 +201,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please wait till other participant join." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hd2-vF-4h5">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please wait till other participant join." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hd2-vF-4h5">
                                 <rect key="frame" x="40" y="325" width="295" height="17.5"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -243,6 +243,20 @@
                                     <constraint firstAttribute="width" constant="95" id="bnz-Hl-adV"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mZY-sg-lTV">
+                                <rect key="frame" x="283" y="10" width="82" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="MDy-Om-UCZ"/>
+                                    <constraint firstAttribute="width" constant="82" id="ilf-39-cFT"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                <state key="normal" title="Send Logs">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="sendLogtoServerEvent:" destination="gxY-Fs-PJv" eventType="touchUpInside" id="nPc-Db-Wpq"/>
+                                </connections>
+                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YKv-l7-xqi">
                                 <rect key="frame" x="0.0" y="532" width="375" height="135"/>
                                 <subviews>
@@ -344,10 +358,12 @@
                         <constraints>
                             <constraint firstItem="YKv-l7-xqi" firstAttribute="leading" secondItem="LDa-a2-L6o" secondAttribute="leading" id="7L1-Vi-WeC"/>
                             <constraint firstItem="hd2-vF-4h5" firstAttribute="centerY" secondItem="iJm-Ky-fG2" secondAttribute="centerY" id="Aj7-x3-Egf"/>
+                            <constraint firstItem="LDa-a2-L6o" firstAttribute="trailing" secondItem="mZY-sg-lTV" secondAttribute="trailing" constant="10" id="BWh-WS-U1J"/>
                             <constraint firstItem="fvy-8i-Izj" firstAttribute="trailing" secondItem="LDa-a2-L6o" secondAttribute="trailing" id="Bmz-9Y-Lu3"/>
                             <constraint firstItem="fvy-8i-Izj" firstAttribute="bottom" secondItem="LDa-a2-L6o" secondAttribute="bottom" id="H7F-yV-NyX"/>
                             <constraint firstItem="fvy-8i-Izj" firstAttribute="leading" secondItem="LDa-a2-L6o" secondAttribute="leading" id="L0N-OZ-Hwh"/>
                             <constraint firstItem="hd2-vF-4h5" firstAttribute="leading" secondItem="LDa-a2-L6o" secondAttribute="leading" constant="40" id="Y49-K7-3YB"/>
+                            <constraint firstItem="mZY-sg-lTV" firstAttribute="top" secondItem="iJm-Ky-fG2" secondAttribute="top" constant="10" id="Yxu-3I-QHX"/>
                             <constraint firstItem="YKv-l7-xqi" firstAttribute="trailing" secondItem="LDa-a2-L6o" secondAttribute="trailing" id="Z9D-Gg-hXc"/>
                             <constraint firstItem="LDa-a2-L6o" firstAttribute="trailing" secondItem="Opr-Od-zdG" secondAttribute="trailing" constant="10" id="a6r-Mj-R0W"/>
                             <constraint firstItem="YKv-l7-xqi" firstAttribute="bottom" secondItem="LDa-a2-L6o" secondAttribute="bottom" id="cCa-gG-XkG"/>
@@ -366,6 +382,7 @@
                         <outlet property="messageLBL" destination="hd2-vF-4h5" id="b4l-ie-UoS"/>
                         <outlet property="optionsView" destination="aKs-DB-iES" id="bVt-9i-NnH"/>
                         <outlet property="publisherNameLBL" destination="7jb-wE-4vP" id="IFD-1o-khN"/>
+                        <outlet property="sendLogBtn" destination="mZY-sg-lTV" id="hSA-xG-6Ed"/>
                         <outlet property="subscriberNameLBL" destination="rVX-ZW-7RA" id="4U6-Cl-mNr"/>
                     </connections>
                 </viewController>

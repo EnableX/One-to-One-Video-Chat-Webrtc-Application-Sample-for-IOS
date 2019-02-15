@@ -19,10 +19,10 @@
 		BD0CD02A21AE8FAB001711B8 /* VCXRoomInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0CD02921AE8FAB001711B8 /* VCXRoomInfoModel.swift */; };
 		BD0CD02D21AE8FBB001711B8 /* VCXServicesClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0CD02C21AE8FBB001711B8 /* VCXServicesClass.swift */; };
 		BD0CD03021AE8FCF001711B8 /* VCXConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0CD02F21AE8FCF001711B8 /* VCXConstant.swift */; };
-		BD0CD03221AE903F001711B8 /* EnxRTCiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD0CD03121AE903F001711B8 /* EnxRTCiOS.framework */; };
-		BD0CD03321AE903F001711B8 /* EnxRTCiOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BD0CD03121AE903F001711B8 /* EnxRTCiOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BD0CD03621AECB90001711B8 /* VCXConfrenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0CD03521AECB90001711B8 /* VCXConfrenceViewController.swift */; };
 		BD0CD03C21B00128001711B8 /* VCXMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0CD03B21B00128001711B8 /* VCXMenuViewController.swift */; };
+		BD7E59262216C3060043092A /* EnxRTCiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD7E59252216C3060043092A /* EnxRTCiOS.framework */; };
+		BD7E59272216C3060043092A /* EnxRTCiOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BD7E59252216C3060043092A /* EnxRTCiOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C9CBF11DB03171FC8D89EC76 /* Pods_sampleiOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D9B8CADAD53F7E5266636F3 /* Pods_sampleiOSTests.framework */; };
 		DC7F441FBFD40AA519463AFD /* Pods_sampleiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72E6F3E9912D86CF1AA58A45 /* Pods_sampleiOS.framework */; };
 /* End PBXBuildFile section */
@@ -45,13 +45,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		BD0CD03421AE903F001711B8 /* Embed Frameworks */ = {
+		BD7E59282216C3060043092A /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				BD0CD03321AE903F001711B8 /* EnxRTCiOS.framework in Embed Frameworks */,
+				BD7E59272216C3060043092A /* EnxRTCiOS.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -85,9 +85,9 @@
 		BD0CD02921AE8FAB001711B8 /* VCXRoomInfoModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCXRoomInfoModel.swift; sourceTree = "<group>"; };
 		BD0CD02C21AE8FBB001711B8 /* VCXServicesClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCXServicesClass.swift; sourceTree = "<group>"; };
 		BD0CD02F21AE8FCF001711B8 /* VCXConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCXConstant.swift; sourceTree = "<group>"; };
-		BD0CD03121AE903F001711B8 /* EnxRTCiOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = EnxRTCiOS.framework; sourceTree = "<group>"; };
 		BD0CD03521AECB90001711B8 /* VCXConfrenceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCXConfrenceViewController.swift; sourceTree = "<group>"; };
 		BD0CD03B21B00128001711B8 /* VCXMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCXMenuViewController.swift; sourceTree = "<group>"; };
+		BD7E59252216C3060043092A /* EnxRTCiOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = EnxRTCiOS.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,7 +95,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BD0CD03221AE903F001711B8 /* EnxRTCiOS.framework in Frameworks */,
+				BD7E59262216C3060043092A /* EnxRTCiOS.framework in Frameworks */,
 				DC7F441FBFD40AA519463AFD /* Pods_sampleiOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -135,7 +135,7 @@
 		BD0CCFE921AE75E7001711B8 = {
 			isa = PBXGroup;
 			children = (
-				BD0CD03121AE903F001711B8 /* EnxRTCiOS.framework */,
+				BD7E59252216C3060043092A /* EnxRTCiOS.framework */,
 				BD0CCFF421AE75E7001711B8 /* sampleiOS */,
 				BD0CD00921AE75EE001711B8 /* sampleiOSTests */,
 				BD0CD01421AE75EE001711B8 /* sampleiOSUITests */,
@@ -246,7 +246,8 @@
 				BD0CCFEF21AE75E7001711B8 /* Frameworks */,
 				BD0CCFF021AE75E7001711B8 /* Resources */,
 				833340487167DFA25B8B1BC1 /* [CP] Embed Pods Frameworks */,
-				BD0CD03421AE903F001711B8 /* Embed Frameworks */,
+				BDC864A821C267F2005D96AB /* ShellScript */,
+				BD7E59282216C3060043092A /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -414,6 +415,23 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-sampleiOS/Pods-sampleiOS-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		BDC864A821C267F2005D96AB /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" 6db66bb09589a86b6c8ca0a363283eae3d10fc21 95a89475e2a08b213555f788be00d1c32b3aec5692fd969f501e38aeea88ba0c\n";
 		};
 		C5F35E851F2194170FEAF507 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;

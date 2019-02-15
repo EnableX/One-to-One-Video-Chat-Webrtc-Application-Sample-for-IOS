@@ -10,6 +10,10 @@ import UIKit
 import EnxRTCiOS
 import SVProgressHUD
 class VCXConfrenceViewController: UIViewController {
+
+    
+    @IBOutlet weak var sendLogBtn: UIButton!
+    
     @IBOutlet weak var publisherNameLBL: UILabel!
     @IBOutlet weak var subscriberNameLBL: UILabel!
     @IBOutlet weak var messageLBL: UILabel!
@@ -71,6 +75,20 @@ class VCXConfrenceViewController: UIViewController {
             print("Gesture ended")
         }
     }
+    // MARK: - sendLogtoServerEvent
+    /**
+     input parameter - Any
+     Return  - Nil
+     This method will Save all Socket Event logs to server
+     **/
+    @IBAction func sendLogtoServerEvent(_ sender: Any) {
+        guard remoteRoom != nil else {
+            return
+        }
+        remoteRoom.postClientLogs()
+        print("Send Logs")
+    }
+    
     // MARK: - createTokrn
     /**
      input parameter - Nil
@@ -95,7 +113,11 @@ class VCXConfrenceViewController: UIViewController {
                     
                     //let localStreamInfo : NSDictionary = ["video" : self.param["video"]! ,"audio" : self.param["audio"]! ,"data" :self.param["chat"]!,"usertype":self.roomInfo.role! ,"name" :self.roomInfo.participantName!,"mode" : self.roomInfo.mode! ,"type" : "public"]
                     
-                    self.localStream = self.objectJoin.joinRoom(token, delegate: self, publishStreamInfo: (localStreamInfo as! [AnyHashable : Any]))
+                    guard let steam = self.objectJoin.joinRoom(token, delegate: self, publishStreamInfo: (localStreamInfo as! [AnyHashable : Any])) else{
+                        SVProgressHUD.dismiss()
+                        return
+                    }
+                    self.localStream = steam
                     self.localStream.delegate = self as EnxStreamDelegate
                 }
                 //Handel if Room is full
@@ -262,6 +284,10 @@ extension VCXConfrenceViewController : EnxRoomDelegate, EnxStreamDelegate {
             if let name = remoteRoom.whoami()!["name"] {
                 publisherNameLBL.text = (name as! String)
                 localPlayerView.bringSubviewToFront(publisherNameLBL)
+//                UIView.animate(withDuration: 0.5, animations: {
+//                    self.localPlayerView.frame = UIScreen.main.bounds
+//                })
+                
             }
             localStream.attachRenderer(localPlayerView)
             localPlayerView.contentMode = UIView.ContentMode.scaleAspectFill
@@ -368,7 +394,7 @@ extension VCXConfrenceViewController : EnxRoomDelegate, EnxStreamDelegate {
     func room(_ room: EnxRoom?, activeTalkerList Data: [Any]?) {
         //To Do
         guard let tempDict = Data?[0] as? [String : Any], Data!.count>0 else {
-            messageLBL.text = "Please wait till other participant join."
+            //messageLBL.text = "Please wait till other participant join."
             messageLBL.isHidden = true
             subscriberNameLBL.isHidden = true
             mainPlayerView.isHidden = true
@@ -377,13 +403,21 @@ extension VCXConfrenceViewController : EnxRoomDelegate, EnxStreamDelegate {
         let activeListArray = tempDict["activeList"] as? [Any]
         if (activeListArray?.count == 0){
             
-            messageLBL.text = "Please wait till other participant join."
+            //messageLBL.text = "Please wait till other participant join."
             messageLBL.isHidden = true
             subscriberNameLBL.isHidden = true
             mainPlayerView.isHidden = true
             
         }
         else{
+//            UIView.animate(withDuration: 0.5, animations: {
+//                var rect = UIScreen.main.bounds
+//                rect.origin.x = rect.width - 115
+//                rect.origin.y = rect.height - 200
+//                rect.size.width = 95
+//                rect.size.height = 120
+//                self.localPlayerView.frame = rect
+//            })
             mainPlayerView.isHidden = false
             subscriberNameLBL.isHidden = false
             messageLBL.isHidden = true
@@ -400,6 +434,12 @@ extension VCXConfrenceViewController : EnxRoomDelegate, EnxStreamDelegate {
             mainPlayerView.contentMode = UIView.ContentMode.scaleAspectFill
         }
     }
+    
+    func room(_ room: EnxRoom?, didEventError reason: [Any]?) {
+        let resDict = reason![0] as! [String : Any]
+        self.showAleartView(message:resDict["msg"] as! String, andTitles: "OK")
+    }
+    
     //Mark- EnxStreamDelegate Delegate
     /*
         This Delegate will notify to current User If User will do Self Stop Video

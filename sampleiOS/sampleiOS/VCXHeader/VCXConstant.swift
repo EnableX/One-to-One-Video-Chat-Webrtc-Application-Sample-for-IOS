@@ -8,9 +8,11 @@
 
 import Foundation
 
-let userName = "demo"
-let password = "enablex"
 
-let kBasedURL = "https://kamalvm.vcloudx.com:7000/"
+//Dev
 
+let userName = "User"
+let password = "Password"
+
+let kBasedURL = "URL"
 

@@ -7,7 +7,9 @@
 //
 
 import UIKit
-
+import Fabric
+import Crashlytics
+import EnxRTCiOS
 
 @UIApplicationMain
 class VCXAppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,6 +18,10 @@ class VCXAppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        Fabric.with([Crashlytics.self])
+        //This is to enable EnxRTCiOS logs.
+        let logger = EnxLogger.sharedInstance()
+        logger?.startLog()
         // Override point for customization after application launch.
         return true
     }

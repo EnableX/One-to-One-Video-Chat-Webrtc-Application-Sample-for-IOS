@@ -8,6 +8,7 @@
 
 import UIKit
 import SVProgressHUD
+import AVFoundation
 
 class VCXJoinRoomViewController: UIViewController  {
     
@@ -23,8 +24,25 @@ class VCXJoinRoomViewController: UIViewController  {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.prepareView()
+        self.getPrivacyAccess()
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
+    
+    private func getPrivacyAccess(){
+        
+        let vStatus = AVCaptureDevice.authorizationStatus(for: .video)
+        if(vStatus == AVAuthorizationStatus.notDetermined){
+            AVCaptureDevice.requestAccess(for: .video, completionHandler: { (granted: Bool) in
+            })
+        }
+        let aStatus = AVCaptureDevice.authorizationStatus(for: .audio)
+        if(aStatus == AVAuthorizationStatus.notDetermined){
+            AVCaptureDevice.requestAccess(for: .audio, completionHandler: { (granted: Bool) in
+            })
+        }
+    }
+    
     // MARK: - prepareView
     /**
      adjust mainView layer conrnerRadius
