@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "sampleiOS/VCXConfrenceViewController.swift"
-            timestampString = "571917877.5901459"
+            timestampString = "584683785.910702"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "439"
-            endingLineNumber = "439"
+            startingLineNumber = "440"
+            endingLineNumber = "440"
             landmarkName = "room(_:didEventError:)"
             landmarkType = "7">
          </BreakpointContent>

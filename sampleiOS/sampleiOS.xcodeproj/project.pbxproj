@@ -21,8 +21,6 @@
 		BD0CD03021AE8FCF001711B8 /* VCXConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0CD02F21AE8FCF001711B8 /* VCXConstant.swift */; };
 		BD0CD03621AECB90001711B8 /* VCXConfrenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0CD03521AECB90001711B8 /* VCXConfrenceViewController.swift */; };
 		BD0CD03C21B00128001711B8 /* VCXMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0CD03B21B00128001711B8 /* VCXMenuViewController.swift */; };
-		BD7E59262216C3060043092A /* EnxRTCiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD7E59252216C3060043092A /* EnxRTCiOS.framework */; };
-		BD7E59272216C3060043092A /* EnxRTCiOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BD7E59252216C3060043092A /* EnxRTCiOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C9CBF11DB03171FC8D89EC76 /* Pods_sampleiOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D9B8CADAD53F7E5266636F3 /* Pods_sampleiOSTests.framework */; };
 		DC7F441FBFD40AA519463AFD /* Pods_sampleiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72E6F3E9912D86CF1AA58A45 /* Pods_sampleiOS.framework */; };
 /* End PBXBuildFile section */
@@ -51,7 +49,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				BD7E59272216C3060043092A /* EnxRTCiOS.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -87,7 +84,6 @@
 		BD0CD02F21AE8FCF001711B8 /* VCXConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCXConstant.swift; sourceTree = "<group>"; };
 		BD0CD03521AECB90001711B8 /* VCXConfrenceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCXConfrenceViewController.swift; sourceTree = "<group>"; };
 		BD0CD03B21B00128001711B8 /* VCXMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCXMenuViewController.swift; sourceTree = "<group>"; };
-		BD7E59252216C3060043092A /* EnxRTCiOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = EnxRTCiOS.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,7 +91,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BD7E59262216C3060043092A /* EnxRTCiOS.framework in Frameworks */,
 				DC7F441FBFD40AA519463AFD /* Pods_sampleiOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -135,7 +130,6 @@
 		BD0CCFE921AE75E7001711B8 = {
 			isa = PBXGroup;
 			children = (
-				BD7E59252216C3060043092A /* EnxRTCiOS.framework */,
 				BD0CCFF421AE75E7001711B8 /* sampleiOS */,
 				BD0CD00921AE75EE001711B8 /* sampleiOSTests */,
 				BD0CD01421AE75EE001711B8 /* sampleiOSUITests */,
@@ -395,25 +389,16 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-sampleiOS/Pods-sampleiOS-frameworks.sh",
-				"${PODS_ROOT}/GoogleWebRTC/Frameworks/frameworks/WebRTC.framework",
-				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework",
-				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
-				"${BUILT_PRODUCTS_DIR}/Socket.IO-Client-Swift/SocketIO.framework",
-				"${BUILT_PRODUCTS_DIR}/StarscreamSocketIO/StarscreamSocketIO.framework",
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-sampleiOS/Pods-sampleiOS-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WebRTC.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SocketIO.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/StarscreamSocketIO.framework",
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-sampleiOS/Pods-sampleiOS-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-sampleiOS/Pods-sampleiOS-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-sampleiOS/Pods-sampleiOS-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		BDC864A821C267F2005D96AB /* ShellScript */ = {
