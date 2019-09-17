@@ -20,7 +20,7 @@ This App creates a virtual Room on the fly  hosted on the Enablex platform using
 
 #### 1.1.2 Sample iOS Client 
 
-* Clone or download this Repository [https://github.com/EnableX/Sample-iOS-App-1to1-RTC.git] 
+* Clone or download this Repository [https://github.com/EnableX/One-to-One-Video-Chat-Webrtc-Application-Sample-for-IOS.git] 
 
 
 #### 1.1.3 Sample App Server 
