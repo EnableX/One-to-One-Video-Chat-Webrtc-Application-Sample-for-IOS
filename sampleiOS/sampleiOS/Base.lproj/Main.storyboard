@@ -223,6 +223,9 @@
                                     <constraint firstAttribute="bottom" secondItem="rVX-ZW-7RA" secondAttribute="bottom" constant="133" id="prk-rT-QXy"/>
                                     <constraint firstItem="rVX-ZW-7RA" firstAttribute="leading" secondItem="fvy-8i-Izj" secondAttribute="leading" constant="5" id="snc-dh-pKx"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="isLocalView" value="no"/>
+                                </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Opr-Od-zdG" customClass="EnxPlayerView">
                                 <rect key="frame" x="270" y="387" width="95" height="120"/>
@@ -242,6 +245,9 @@
                                     <constraint firstAttribute="height" constant="120" id="Thm-2R-L5J"/>
                                     <constraint firstAttribute="width" constant="95" id="bnz-Hl-adV"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="isLocalView" value="yes"/>
+                                </userDefinedRuntimeAttributes>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mZY-sg-lTV">
                                 <rect key="frame" x="283" y="10" width="82" height="40"/>
@@ -299,7 +305,7 @@
                                                     <action selector="changeCameraAngle:" destination="gxY-Fs-PJv" eventType="touchUpInside" id="PYS-mz-1lO"/>
                                                 </connections>
                                             </button>
-                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m2X-z6-Uwb">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m2X-z6-Uwb">
                                                 <rect key="frame" x="285" y="10" width="40" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="40" id="ErV-XS-RNu"/>

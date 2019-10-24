@@ -24,7 +24,13 @@ class VCXNetworkManager: NSObject {
     override init() {
         super.init()
         // Initialise reachability
-        reachability = Reachability()!
+        do {
+        try reachability = Reachability()
+        
+        } catch {
+   
+    }
+    
         // Register an observer for the network status
         NotificationCenter.default.addObserver(
             self,
