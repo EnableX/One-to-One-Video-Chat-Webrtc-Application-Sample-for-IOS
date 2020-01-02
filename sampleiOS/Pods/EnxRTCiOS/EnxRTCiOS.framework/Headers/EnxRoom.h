@@ -16,7 +16,11 @@ typedef NS_ENUM(NSInteger, EnxRoomStatus) {
     EnxRoomStatusDisconnected,
     EnxRoomStatusError
 };
-
+typedef NS_ENUM(NSUInteger, EnxFilePosition) {
+  Top,
+  Center,
+  Bottom
+};
 /**
  @enum EnxRoomErrorStatus
  */
@@ -606,10 +610,54 @@ typedef NS_ENUM(NSInteger, EnxRoomStatus) {
 /*
  This delegate method called to receive message at room Level.
  */
+- (void)room:(EnxRoom *_Nonnull)room didMessageReceived:(NSArray *_Nullable)data;
+
+/*
+ This delegate method called to receive custom signaling event message at room Level.
+ */
+- (void)room:(EnxRoom *_Nonnull)room didUserDataReceived:(NSArray *_Nullable)data;
+
+/*
+This delegate method called When any of the user in same room will start sharing file.
+*/
 - (void)room:(EnxRoom *_Nonnull)room
-        didReceiveChatDataAtRoom:(NSArray *_Nullable)data;
+didFileUploadStarted:(NSArray *_Nullable)data;
 
+/*
+This delegate method called When self user will start sharing file.
+*/
+- (void)room:(EnxRoom *_Nonnull)room
+didInitFileUpload:(NSArray *_Nullable)data;
 
+/*
+This delegate method called When File available to download.
+*/
+- (void)room:(EnxRoom *_Nonnull)room
+didFileAvailable:(NSArray *_Nullable)data;
+
+/*
+This delegate method called upload file is success.
+*/
+- (void)room:(EnxRoom *_Nonnull)room
+didFileUploaded:(NSArray *_Nullable)data;
+
+/*
+This delegate method called upload file is failed.
+*/
+- (void)room:(EnxRoom *_Nonnull)room
+didFileUploadFailed:(NSArray *_Nullable)data;
+
+/*
+This delegate method called When download of file success.
+*/
+- (void)room:(EnxRoom *_Nonnull)room
+didFileDownloaded:(NSString *_Nullable)data;
+
+/*
+This delegate method called When file download failed.
+*/
+- (void)room:(EnxRoom *_Nonnull)room
+didFileDownloadFailed:(NSArray *_Nullable)data;
 /*
  This delegate called for advance options updates.
  */
@@ -634,7 +682,7 @@ typedef NS_ENUM(NSInteger, EnxRoomStatus) {
 #pragma mark- Send Data Delegate
 - (void)room:(EnxRoom *_Nullable)room didAcknowledgSendData:(NSArray *_Nullable)data;
 
--(void)sendUserData:(NSDictionary *_Nonnull)data broadCast:(BOOL)broadcast clientIds:(NSArray *_Nullable)clientIds;
+//-(void)sendUserData:(NSDictionary *_Nonnull)data broadCast:(BOOL)broadcast clientIds:(NSArray *_Nullable)clientIds;
 @end
 
 ///-----------------------------------
@@ -683,6 +731,9 @@ typedef NS_ENUM(NSInteger, EnxRoomStatus) {
 
 /// The status of this Room.
 @property (nonatomic, readonly) EnxRoomStatus status;
+
+/// Enx Local stream options.
+@property (readonly, nonatomic) NSDictionary * _Nullable streamOptions;
 
 /// Full response after signalling channel connect the server.
 @property (nonatomic, readonly) NSMutableDictionary * _Nullable roomMetadata;
@@ -742,7 +793,8 @@ typedef NS_ENUM(NSInteger, EnxRoomStatus) {
 @property (readonly,weak) NSString * _Nullable clientName;
 @property (nonatomic,weak) NSArray * _Nullable userList;
 @property (readonly,nonatomic) NSString * _Nonnull userRole;
-
+@property(readonly) int maxFrameLimits;
+@property (readonly) NSDictionary * _Nullable roomInfo;
 ///-----------------------------------
 /// @name Public Methods
 ///-----------------------------------
@@ -1074,9 +1126,9 @@ opt which should be "Auto, HD , SD, LD and talker/canvas"
 -(void)muteSubscribeStreamsAudio:(BOOL)flag;
 
 
--(void)sendMessage:(NSString *_Nonnull)message broadCast:(BOOL)broadcast clientIds:(NSArray *_Nullable)clientIds;
+-(void)sendMessage:(NSString *_Nonnull)message isBroadCast:(BOOL)broadcast recipientIDs:(NSArray *_Nullable)clientIds;
 
--(void)sendUserData:(NSString *_Nonnull)message broadCast:(BOOL)broadcast clientIds:(NSArray *_Nullable)clientIds;
+-(void)sendUserData:(NSDictionary *_Nonnull)message isBroadCast:(BOOL)broadcast recipientIDs:(NSArray *_Nullable)clientIds;
 
 /* Client endpoint can set options at room level. */
 
@@ -1087,6 +1139,9 @@ opt which should be "Auto, HD , SD, LD and talker/canvas"
 
 //Client endpoint can use this method to switch role.
 -(void)switchUserRole:(NSString *_Nullable)clientId;
-
+-(void)shareFiles:(EnxFilePosition)position isBroadcast:(BOOL)isBroadcast clientIds:(NSArray *_Nullable)clientIds;
+-(void)downloadFile:(NSDictionary *_Nonnull)file autoSave:(BOOL)flag;
+-(NSArray*_Nonnull)getAvailableFiles;
 
 @end
+

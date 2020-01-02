@@ -11,6 +11,16 @@
 //};
 
 
+/**
+ @enum EnxRoomStatus
+ */
+typedef NS_ENUM(NSInteger, TextPosition) {
+    TOP,
+    CENTER,
+    BOTTOM
+};
+
+
 @protocol EnxPlayerDelegate <NSObject>
 @optional
 -(void)didPlayerStats:(NSDictionary * _Nonnull)data;

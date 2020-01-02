@@ -47,13 +47,18 @@ extern NSString* clientStateToString(EnxClientState state);
 /// The streamId
 @property NSString *streamId;
 @property (nonatomic,readonly) int maxNumberOfLayers;
+@property (nonatomic,readonly) int maxbandWidth;
 
 ///-----------------------------------
 /// @name Initializers
 ///-----------------------------------
 
 //- (instancetype)initWithDelegate:(id<EnxClientDelegate>)delegate;
-- (instancetype)initWithDelegate:(id<EnxClientDelegate>)delegate withEnxRoom:(EnxRoom *)room withMaxVideoLayers:(int)layer isAudioOnly:(BOOL)isAudioOnly;
+// for Publisger Stream
+- (instancetype)initPublishClientWithDelegate:(id<EnxClientDelegate>)delegate withEnxRoom:(EnxRoom *)room withMaxVideoLayers:(int)layer withMaxBandWidth:(int)bandWidth isAudioOnly:(BOOL)isAudioOnly ;
+
+// for Subscriber Stream
+-(instancetype)initSubscriberClientWithDelegate:(id<EnxClientDelegate>)delegate withEnxRoom:(EnxRoom *)room;
 
 ///-----------------------------------
 /// @name Instance Methods

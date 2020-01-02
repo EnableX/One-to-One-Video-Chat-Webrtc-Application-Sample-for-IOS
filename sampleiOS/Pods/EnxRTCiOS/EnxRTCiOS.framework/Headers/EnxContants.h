@@ -76,7 +76,7 @@
 #define kswitchedNetwork                    @"NetworkChange"
 #define kmaxVideoDeny                       @"MaxVideoDeny"
 
-
+#define kFrameRate                          @"framerate"
 //#define kMinWidthResolution (1280)
 //#define kMaxWidthResolution (1280)
 //#define kMinHeightResolution (720)

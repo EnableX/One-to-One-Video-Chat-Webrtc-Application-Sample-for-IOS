@@ -6,11 +6,10 @@ target 'sampleiOS' do
   use_frameworks!
 
   # Pods for sampleiOS
-	
-        pod 'GoogleWebRTC','1.1.29229'
+        pod 'EnxRTCiOS', '1.5.3'
         pod 'Socket.IO-Client-Swift', '~> 15.0.0'
-    	pod 'SVProgressHUD'
-    	pod 'ReachabilitySwift'
+        pod 'SVProgressHUD'
+        pod 'ReachabilitySwift'
         pod 'Crashlytics'
 
   target 'sampleiOSTests' do

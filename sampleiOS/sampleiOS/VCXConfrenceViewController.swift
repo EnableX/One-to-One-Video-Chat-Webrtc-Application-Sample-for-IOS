@@ -301,17 +301,17 @@ extension VCXConfrenceViewController : EnxRoomDelegate, EnxStreamDelegate {
     /*
      This Delegate will notify to User Once he Getting error in joining room
      */
-    func room(_ room: EnxRoom?, didError reason: String?) {
-        self.showAleartView(message:reason!, andTitles: "OK")
+    func room(_ room: EnxRoom?, didError reason: [Any]?) {
+        self.showAleartView(message:"Room error", andTitles: "OK")
     }
     /*
-     This Delegate will notify to  User Once he Publisg Stream
+     This Delegate will notify to  User Once he/she Publisg Stream
      */
     func room(_ room: EnxRoom?, didPublishStream stream: EnxStream?) {
         //To Do
     }
     /*
-     This Delegate will notify to  User Once he Unpublisg Stream
+     This Delegate will notify to  User Once he/she will Unpublisg Stream
      */
     func room(_ room: EnxRoom?, didUnpublishStream stream: EnxStream?) {
         //To Do
@@ -323,7 +323,7 @@ extension VCXConfrenceViewController : EnxRoomDelegate, EnxStreamDelegate {
         room!.subscribe(stream!)
     }
     /*
-     This Delegate will notify to User if any new person Romove from room
+     This Delegate will notify to User if any person Romove from room
      */
     func room(_ room: EnxRoom?, didRemovedStream stream: EnxStream?) {
         //To Do
@@ -362,16 +362,64 @@ extension VCXConfrenceViewController : EnxRoomDelegate, EnxStreamDelegate {
         self.leaveRoom()
     }
     /*
-     This Delegate will notify to User if any person got discunnected
+     This Delegate will notify to end User if Room connecton status changed
      */
     func room(_ room: EnxRoom?, didChange status: EnxRoomStatus) {
         //To Do
     }
     /*
-     This Delegate will notify to User once any stream got publish
+     This Delegate will notify to User if any participant will send chat data
      */
-    func room(_ room: EnxRoom?, didReceiveData data: [AnyHashable : Any]?, from stream: EnxStream?) {
+    func room(_ room: EnxRoom, didMessageReceived data: [Any]?) {
+        //TO DO
+    }
+    /*
+    This Delegate will notify to User if any participant will send message over custome signaling
+    */
+    func room(_ room: EnxRoom, didUserDataReceived data: [Any]?) {
+        //TO Do
+    }
+    /*
+    This Delegate will notify to User if any participant will start sharing files
+    */
+    func room(_ room: EnxRoom, didFileUploadStarted data: [Any]?) {
+        //TO Do
+    }
+    /*
+    This Delegate will notify to self  if he/she will start sharing files
+    */
+    func room(_ room: EnxRoom, didInitFileUpload data: [Any]?) {
         //To Do
+    }
+    /*
+    This Delegate will notify to self  if file sharing success
+    */
+    func room(_ room: EnxRoom, didFileUploaded data: [Any]?) {
+        //To DO
+    }
+    /*
+    This Delegate will notify to self  if file sharing failed
+    */
+    func room(_ room: EnxRoom, didFileUploadFailed data: [Any]?) {
+        //To DO
+    }
+    /*
+    This Delegate will notify to end user  if file available
+    */
+    func room(_ room: EnxRoom, didFileAvailable data: [Any]?) {
+        //TO DO
+    }
+    /*
+    This Delegate will notify to self  if file download failed
+    */
+    func room(_ room: EnxRoom, didFileDownloadFailed data: [Any]?) {
+        //TO Do
+    }
+    /*
+    This Delegate will notify to self  if file download success
+    */
+    func room(_ room: EnxRoom, didFileDownloaded data: String?) {
+        //TO DO
     }
     /*
      This Delegate will notify to User to get updated attributes of particular Stream

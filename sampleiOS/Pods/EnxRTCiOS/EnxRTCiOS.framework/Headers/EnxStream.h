@@ -167,62 +167,6 @@
 ///-----------------------------------
 
 /**
- Creates an instace of EnxStream capturing audio/video from the host device
- with given Audio and Video contraints.
- 
- Notice that the constraints passed to this initializer will also be set as default
- constraint properties for defaultAudioConstraints and defaultVideoConstraints.
- 
- @param videoConstraints RTCMediaConstraints that apply to this stream.
- @param audioConstraints RTCMediaConstraints that apply to this stream.
- 
- @see initLocalStream:
- @see initLocalStreamWithOptions:attributes:videoConstraints:audioConstraints:
- 
- @return instancetype
- */
-- (instancetype _Nonnull)initLocalStreamVideoConstraints:(nullable RTCMediaConstraints *)videoConstraints
-                                        audioConstraints:(nullable RTCMediaConstraints *)audioConstraints __attribute__((deprecated("This API is depricated.Use getLocalStream: in EnxRoom")));
-
-/**
- Creates an instace of EnxStream capturing audio/video from the host device
- providing options, attributes and Audio and Video contraints.
- 
- Notice that the constraints passed to this initializer will also be set as default
- constraint properties for defaultAudioConstraints and defaultVideoConstraints.
- 
- @param options dictionary. @see kStreamOption for options keys.
- @param attributes dictionary. @see setAttributes.
- @param videoConstraints RTCMediaConstraints that apply to this stream.
- @param audioConstraints RTCMediaConstraints that apply to this stream.
- 
- @see initLocalStream:
- @see initLocalStreamVideoConstraints:audioConstraints:
- 
- @return instancetype
- */
-- (instancetype _Nonnull)initLocalStreamWithOptions:(nullable NSDictionary *)options
-                                         attributes:(nullable NSDictionary *)attributes
-                                   videoConstraints:(nullable RTCMediaConstraints *)videoConstraints
-                                   audioConstraints:(nullable RTCMediaConstraints *)audioConstraints __attribute__((deprecated("This API is depricated.Use getLocalStream: in EnxRoom")));
-/**
- Creates an instace of EnxStream capturing audio/video from the host device
- providing options, attributes.
- 
- @param options dictionary. @see kStreamOption for options keys.
- @param attributes dictionary. @see setAttributes.
- 
- @see initLocalStream:
- @see initLocalStreamVideoConstraints:audioConstraints:
- @see initLocalStreamWithOptions:attributes:videoConstraints:audioConstraints:
- 
- @return instancetype
- */
-- (instancetype _Nonnull)initLocalStreamWithOptions:(nullable NSDictionary *)options
-                                         attributes:(nullable NSDictionary *)attributes
-                                   signalingChannel:(EnxSignalingChannel *_Nonnull)signalingChannel __attribute__((deprecated("This API is depricated.Use getLocalStream: in EnxRoom")));
-
-/**
  Creates an instance of EnxStream capturing audio/video data
  from host device with defaultVideoConstraints and defaultAudioConstraints.
  
@@ -340,6 +284,7 @@
  */
 - (NSDictionary *_Nullable)getAttributes;
 
+
 /**
  Set attributes of the stream
  
@@ -416,8 +361,6 @@
 /// Indicates attributes hasn't been sent to Enx yet.
 @property (readonly) BOOL dirtyAttributes;
 
-/// Enx Lecol stream options.
-@property (strong, nonatomic) NSDictionary * _Nullable streamOptions;
 
 /// Enx Remote stream options.
 @property (strong, nonatomic) NSDictionary * _Nullable remoteStreamOptions;
@@ -454,7 +397,7 @@
 
 @property(weak,readonly,nonatomic) EnxPlayerView * _Nullable enxPlayerView;
 @property(strong,nonatomic) NSString * _Nullable clientID;
-
+ @property (readonly) BOOL usingFrontCamera;
 //@property (strong,nonatomic) NSDictionary * _Nullable receivedDataDictionary;
 //
 - (void)SelfHardMuteAudio:(BOOL)isMuted;
