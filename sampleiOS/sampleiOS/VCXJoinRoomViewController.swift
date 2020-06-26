@@ -23,14 +23,11 @@ class VCXJoinRoomViewController: UIViewController  {
     @IBOutlet weak var shareBtn: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.prepareView()
         self.getPrivacyAccess()
-        
+        self.prepareView()
         // Do any additional setup after loading the view, typically from a nib.
     }
-    
     private func getPrivacyAccess(){
-        
         let vStatus = AVCaptureDevice.authorizationStatus(for: .video)
         if(vStatus == AVAuthorizationStatus.notDetermined){
             AVCaptureDevice.requestAccess(for: .video, completionHandler: { (granted: Bool) in
@@ -56,12 +53,6 @@ class VCXJoinRoomViewController: UIViewController  {
         joinBtn.layer.cornerRadius = 8.0
         topView.round(corners: [.topLeft, .topRight], radius: 8.0)
         createRoom.layer.cornerRadius = 8.0
-        if UserDefaults.standard.string(forKey: "Rood_Id") != nil{
-            let userdef = UserDefaults.standard
-            self.roomNameTxt.text = userdef.string(forKey: "Rood_Id")
-            self.nameTxt.text = userdef.string(forKey: "participantName")
-            shareBtn.isHidden = false
-        }
     }
     // MARK: - getFromuserDef
     /**

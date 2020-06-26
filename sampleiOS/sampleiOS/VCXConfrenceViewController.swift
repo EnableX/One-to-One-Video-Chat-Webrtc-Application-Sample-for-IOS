@@ -18,9 +18,10 @@ class VCXConfrenceViewController: UIViewController {
     @IBOutlet weak var subscriberNameLBL: UILabel!
     @IBOutlet weak var messageLBL: UILabel!
     @IBOutlet weak var localPlayerView: EnxPlayerView!
-    @IBOutlet weak var mainPlayerView: EnxPlayerView!
     @IBOutlet weak var cameraBTN: UIButton!
     @IBOutlet weak var optionsView: UIView!
+    @IBOutlet weak var optionsContainerView: UIView!
+    
     @IBOutlet weak var optionViewButtonlayout: NSLayoutConstraint!
     var roomInfo : VCXRoomInfoModel!
     var param : [String : Any] = [:]
@@ -109,9 +110,9 @@ class VCXConfrenceViewController: UIViewController {
                     
                     let videoSize : NSDictionary =  ["minWidth" : 720 , "minHeight" : 480 , "maxWidth" : 1280, "maxHeight" :720]
                     
-                    let localStreamInfo : NSDictionary = ["video" : self.param["video"]! ,"audio" : self.param["audio"]! ,"data" :self.param["chat"]! ,"name" :self.roomInfo.participantName!,"type" : "public" ,"maxVideoBW" : 400 ,"minVideoBW" : 300 , "videoSize" : videoSize]
+                    let localStreamInfo : NSDictionary = ["video" : self.param["video"]! ,"audio" : self.param["audio"]! ,"data" :self.param["chat"]! ,"name" :self.roomInfo.participantName!,"type" : "public","audio_only": false ,"maxVideoBW" : 400 ,"minVideoBW" : 300 , "videoSize" : videoSize]
                     
-                   let roomInfo : NSDictionary  = ["allow_reconnect" : true , "number_of_attempts" : 3, "timeout_interval" : 20, "audio_only": false]
+                   let roomInfo : NSDictionary  = ["allow_reconnect" : true , "number_of_attempts" : 3, "timeout_interval" : 20,"activeviews" : "list"]
                     guard let steam = self.objectJoin.joinRoom(token, delegate: self, publishStreamInfo: (localStreamInfo as! [AnyHashable : Any]), roomInfo: (roomInfo as! [AnyHashable : Any]), advanceOptions: nil) else{
                         SVProgressHUD.dismiss()
                         return
@@ -251,7 +252,7 @@ class VCXConfrenceViewController: UIViewController {
     private func leaveRoom(){
         UIApplication.shared.isIdleTimerDisabled = false
         remoteRoom?.disconnect()
-        self.navigationController?.popViewController(animated: true)
+        //self.navigationController?.popViewController(animated: true)
     }
     
     /*
@@ -288,9 +289,6 @@ extension VCXConfrenceViewController : EnxRoomDelegate, EnxStreamDelegate {
             }
             localStream.attachRenderer(localPlayerView)
             localPlayerView.contentMode = UIView.ContentMode.scaleAspectFill
-        }else{
-            localStream.attachRenderer(mainPlayerView)
-            mainPlayerView.contentMode = UIView.ContentMode.scaleAspectFill
         }
         if listOfParticipantInRoom.count >= 1 {
             listOfParticipantInRoom.removeAll()
@@ -346,8 +344,8 @@ extension VCXConfrenceViewController : EnxRoomDelegate, EnxStreamDelegate {
     /*
      This Delegate will notify to User if Room Got discunnected
      */
-    func roomDidDisconnected(_ status: EnxRoomStatus) {
-        self.leaveRoom()
+    func didRoomDisconnect(_ response: [Any]?) {
+       self.navigationController?.popViewController(animated: true)
     }
     /*
      This Delegate will notify to User if any person join room
@@ -359,7 +357,7 @@ extension VCXConfrenceViewController : EnxRoomDelegate, EnxStreamDelegate {
      This Delegate will notify to User if any person got discunnected
      */
     func room(_ room: EnxRoom?, userDidDisconnected Data: [Any]?) {
-        self.leaveRoom()
+        //self.leaveRoom()
     }
     /*
      This Delegate will notify to end User if Room connecton status changed
@@ -458,42 +456,17 @@ extension VCXConfrenceViewController : EnxRoomDelegate, EnxStreamDelegate {
     /*
      This Delegate will notify to User with active talker list
      */
-    func room(_ room: EnxRoom?, activeTalkerList Data: [Any]?) {
-        //To Do
-        guard let tempDict = Data?[0] as? [String : Any], Data!.count>0 else {
-            //messageLBL.text = "Please wait till other participant join."
-            messageLBL.isHidden = true
-            subscriberNameLBL.isHidden = true
-            mainPlayerView.isHidden = true
-            return
-        }
-        let activeListArray = tempDict["activeList"] as? [Any]
-        if (activeListArray?.count == 0){
-            
-            //messageLBL.text = "Please wait till other participant join."
-            messageLBL.isHidden = true
-            subscriberNameLBL.isHidden = true
-            mainPlayerView.isHidden = true
-            
-        }
-        else{
-
-            mainPlayerView.isHidden = false
-            subscriberNameLBL.isHidden = false
-            messageLBL.isHidden = true
-            let remoteStreamDict = remoteRoom.streamsByStreamId as! [String : Any]
-            let mostActiveDict = activeListArray![0] as! [String : Any];
-            let streamId = String(mostActiveDict["streamId"] as! Int)
-            let stream = remoteStreamDict[streamId] as! EnxStream
-            stream.streamAttributes = ["name" : mostActiveDict["name"] as! String]
-            stream.mediaType = (mostActiveDict["mediatype"] as! String) as NSString
-            stream.detachRenderer()
-            stream.attachRenderer(mainPlayerView)
-            subscriberNameLBL.text = mostActiveDict["name"] as? String
-            mainPlayerView.bringSubviewToFront(subscriberNameLBL)
-            mainPlayerView.contentMode = UIView.ContentMode.scaleAspectFill
-        }
+    func room(_ room: EnxRoom?, didActiveTalkerList Data: [Any]?) {
+        // Handle individual stream and there player
     }
+    func room(_ room: EnxRoom?, didActiveTalkerView view: UIView?) {
+        self.view.addSubview(view!)
+        self.view.bringSubviewToFront(localPlayerView)
+        self.view.bringSubviewToFront(optionsContainerView)
+        self.view.bringSubviewToFront(sendLogBtn)
+    }
+
+    
     
     func room(_ room: EnxRoom?, didEventError reason: [Any]?) {
         let resDict = reason![0] as! [String : Any]

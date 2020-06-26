@@ -20,7 +20,7 @@ class VCXAppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         Fabric.with([Crashlytics.self])
         //This is to enable EnxRTCiOS logs.
-        let logger = EnxLogger.sharedInstance()
+        let logger = EnxUtilityManager.shareInstance()
         logger?.startLog()
         // Override point for customization after application launch.
         return true
