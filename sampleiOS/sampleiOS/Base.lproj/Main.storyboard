@@ -84,7 +84,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Jay" borderStyle="roundedRect" placeholder="Enter Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2xU-JP-Clu">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2xU-JP-Clu">
                                         <rect key="frame" x="20" y="129" width="240" height="30"/>
                                         <color key="backgroundColor" red="0.60392156862745094" green="0.60392156862745094" blue="0.60392156862745094" alpha="0.20428036971830985" colorSpace="calibratedRGB"/>
                                         <constraints>
@@ -96,7 +96,7 @@
                                             <outlet property="delegate" destination="EvB-Zo-Cc5" id="Ung-f2-Vqg"/>
                                         </connections>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="5ef590b1ec74380858b53af3" borderStyle="roundedRect" placeholder="Enter Room Id" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eWT-IH-yjt">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Room Id" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eWT-IH-yjt">
                                         <rect key="frame" x="20" y="174" width="240" height="30"/>
                                         <color key="backgroundColor" white="0.66666666669999997" alpha="0.19756822183098591" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
