@@ -1,6 +1,6 @@
 # 1-to-1 RTC: A Sample iOS App with EnableX iOS Toolkit
 
-This is a Sample iOS App that demonstrates the use of [EnableX platform Server APIs] (https://www.enablex.io/developer/video-api/server-api) and [iOS Toolkit](https://www.enablex.io/developer/video-api/client-api/ios-toolkit/).  It allows developers to ramp up on app development by hosting on their own devices. 
+This is a Sample iOS App that demonstrates the use of [EnableX platform Server APIs](https://www.enablex.io/developer/video-api/server-api) and [iOS Toolkit](https://www.enablex.io/developer/video-api/client-api/ios-toolkit/).  It allows developers to ramp up on app development by hosting on their own devices. 
 
 This App creates a virtual Room on the fly  hosted on the Enablex platform using REST calls and uses the Room credentials (i.e. Room Id) to connect to the virtual Room as a mobile client.  The same Room credentials can be shared with others to join the same virtual Room to carry out an RTC (Real-Time Communication) session. 
 
