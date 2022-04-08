@@ -1,22 +1,21 @@
 # 1-to-1 RTC: A Sample iOS App with EnableX iOS Toolkit
 
-This is a Sample iOS App demonstrates the use of EnableX (https://www.enablex.io/cpaas/video-api) platform Server APIs and iOS Toolkit.  It allows developers to ramp up on app development by hosting on their own devices. 
+This is a Sample iOS App that demonstrates the use of [EnableX platform Server APIs] (https://www.enablex.io/developer/video-api/server-api) and [iOS Toolkit](https://www.enablex.io/developer/video-api/client-api/ios-toolkit/).  It allows developers to ramp up on app development by hosting on their own devices. 
 
-This App creates a virtual Room on the fly  hosted on the Enablex platform using REST calls and uses the Room credentials (i.e. Room Id) to connect to the virtual Room as a mobile client.  The same Room credentials can be shared with others to join the same virtual Room to carry out a RTC (Real Time Communication) session. 
+This App creates a virtual Room on the fly  hosted on the Enablex platform using REST calls and uses the Room credentials (i.e. Room Id) to connect to the virtual Room as a mobile client.  The same Room credentials can be shared with others to join the same virtual Room to carry out an RTC (Real-Time Communication) session. 
 
 > EnableX Developer Center: https://developer.enablex.io/
 
 
 ## 1. How to get started
 
-### 1.1 Pre-Requisites
+### 1.1 Prerequisites
 
 #### 1.1.1 App Id and App Key 
 
 * Register with EnableX [https://portal.enablex.io/cpaas/trial-sign-up/] 
-* Login to the EnableX Portal
-* Create your Application Key
-* Get your App ID and App Key delivered to your Email
+* Create your Application
+* Get your App ID and App Key delivered to your email
 
 
 
@@ -27,16 +26,16 @@ This App creates a virtual Room on the fly  hosted on the Enablex platform using
 
 #### 1.1.3 Test Application Server
 
-You need to setup an Application Server to provision Web Service API for your iOS Application to communicate enabling Video Session. 
+You need to set up an Application Server to provision Web Service API for your iOS Application to enable Video Session. 
 
-To help you to try our iOS Application quickly, without having to setup Applciation Server, this Application is shipped pre-configured to work in a "try" mode with EnableX hosted Application Server i.e. https://demo.enablex.io. 
+To help you to try our iOS Application quickly, without having to set up Applciation Server, this Application is shipped pre-configured to work in a "try" mode with EnableX hosted Application Server i.e. https://demo.enablex.io. 
 
-Our Application Server restricts a single Session Duation to 10 minutes, and allows 1 moderator and note more than 1 Participant in a Session.
+Our Application Server restricts a single Session Duations to 10 minutes, and allows 1 moderator and not more than 1 Participant in a Session.
 
-Once you tried EnableX iOS Sample Application, you may need to setup your own  Application Server and verify your Application to work with your Application Server.  More on this, read Point 2 later in the Document.
+Once you tried EnableX iOS Sample Application, you may need to set up your own  Application Server and verify your Application to work with your Application Server.  Refer to point 2 for more details on this.
 
 
-#### 1.1.4 Configure iOS Client 
+#### 1.1.4 Configure IOS Client 
 
 * Open the App
 * Go to VCXConstant.swift, it's reads- 
@@ -62,15 +61,15 @@ let kAppkey   = ""
 
 * Open the App in your Device. You get a form to enter Credentials i.e. Name & Room Id.
 * You need to create a Room by clicking the "Create Room" button.
-* Once the Room Id is created, you can use it and share with others to connect to the Virtual Room to carry out a RTC Session either as a Moderator or a Participant (Choose applicable Role in the Form).
+* Once the Room Id is created, you can use it and share with others to connect to the Virtual Room to carry out an RTC Session either as a Moderator or a Participant (Choose applicable Role in the Form).
 
-Note: Only one user with Moderator Role allowed to connect to a Virtual Room while trying with EnableX Hosted Service. Your Own Application Server may allow upto 5 Moderators.
+Note: Only one user with Moderator Role allowed to connect to a Virtual Room while trying with EnableX Hosted Service. Your Own Application Server can allow upto 5 Moderators.
 
-Note:- If you used any emulator/simulator your local stream will not create. It will create only on real device.
+Note:- In case of emulator/simulator your local stream will not create. It will create only on real device.
 
-## 2 Setup Your Own Application Server
+## 2. Set up Your Own Application Server
 
-You may need to setup your own Application Server after you tried the Sample Application with EnableX hosted Server. We have differnt variant of Appliciation Server Sample Code, pick one in your preferred language and follow instructions given in respective README.md file.
+You can set up your own Application Server after you tried the Sample Application with EnableX hosted Server. We have differnt variants of Appliciation Server Sample Code. Pick the one in your preferred language and follow instructions given in respective README.md file.
 
 *NodeJS: [https://github.com/EnableX/Video-Conferencing-Open-Source-Web-Application-Sample.git]
 *PHP: [https://github.com/EnableX/Group-Video-Call-Conferencing-Sample-Application-in-PHP]
@@ -78,23 +77,23 @@ You may need to setup your own Application Server after you tried the Sample App
 Note the following:
 
 * You need to use App ID and App Key to run this Service.
-* Your iOS Client End Point needs to connect to this Service to create Virtual Room and Create Token to join session.
-* Application Server is created using EnableX Server API, a Rest API Service helps in provisioning, session access and pos-session reporting.  
+* Your iOS Client EndPoint needs to connect to this Service to create Virtual Room and Create Token to join the session.
+* Application Server is created using EnableX Server API while Rest API Service helps in provisioning, session access and post-session reporting.  
 
 To know more about Server API, go to:
-https://developer.enablex.io/latest/server-api/
+https://www.enablex.io/developer/video-api/server-api
 
 
-## 3 iOS Toolkit
+## 3. IOS Toolkit
 
-This Sample Applcation uses EnableX iOS Toolkit to communicate with EnableX Servers to initiate and manage Real Time Communications. You might need to update your Application with latest version of EnableX iOS Toolkit time as and when a new release is avaialble.   
+This Sample Application uses EnableX iOS Toolkit to communicate with EnableX Servers to initiate and manage Real-Time Communications. Please update your Application with latest version of EnableX IOS Toolkit as and when a new release is available.
 
-* Documentation: https://developer.enablex.io/latest/client-api/ios-toolkit/
-* Download Toolkit: https://developer.enablex.io/resources/downloads/#ios-toolkit
-
-
+* Documentation: https://www.enablex.io/developer/video-api/client-api/ios-toolkit/
+* Download Toolkit: https://www.enablex.io/developer/video-api/client-api/ios-toolkit/
 
 
-## 4 Trial
+
+
+## 4. Trial
 
 Sign up for a free trial https://portal.enablex.io/cpaas/trial-sign-up/ or try our multiparty video chat https://try.enablex.io/
