@@ -18,6 +18,6 @@ import Foundation
 /*The following information required, Only when kTry = true, When you hosted your own webservice remove these fileds*/
 
 /*Use enablec portal to create your app and get these following credentials*/
-    let kAppId    = "App_ID"
-    let kAppkey   = "App_Key"
+    let kAppId    = "app_id"
+    let kAppkey   = "app_key"
 
