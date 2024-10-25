@@ -99,4 +99,4 @@ This Sample Application uses EnableX iOS Toolkit to communicate with EnableX Ser
 
 ## 4. Trial
 
-Sign up for a free trial https://portal.enablex.io/cpaas/trial-sign-up/ or try our multiparty video chat https://try.enablex.io/
+Sign up for a free trial https://www.enablex.io/free-trial/ or try our multiparty video chat https://try.enablex.io/
