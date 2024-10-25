@@ -16,7 +16,7 @@ Flexibility: The app provides a unique "try" mode to use EnableX's hosted Applic
 
 #### 1.1.1 App Id and App Key 
 
-* Register with EnableX [https://portal.enablex.io/cpaas/trial-sign-up/] 
+* Register with EnableX [https://www.enablex.io/free-trial/] 
 * Create your Application
 * Get your App ID and App Key delivered to your email
 
